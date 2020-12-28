@@ -10,12 +10,34 @@ public class Citoyen
     private string address;
     private int n_tele;
     private DateTime date_naissance;
-    private DateTime date_deces;
+    private DateTime? date_deces;
     private List<AntecedentMedical> dossier_medicale;
     private List<Citoyen> entourage;
     private List<Consultation> consultation;
 
     public Citoyen(){
+    }
+
+    public Citoyen(string cin, string nom, string prenom, int age, string address, int n_tele, DateTime date_naissance)
+    {
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.age = age;
+        this.address = address;
+        this.n_tele = n_tele;
+        this.date_naissance = date_naissance;
+    }
+    public Citoyen(string cin, string nom, string prenom, int age, string address, int n_tele, DateTime date_naissance,DateTime date_deces)
+    {
+        this.cin = cin;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.age = age;
+        this.address = address;
+        this.n_tele = n_tele;
+        this.date_naissance = date_naissance;
+        this.date_deces = date_deces;
     }
 
     public Citoyen(string cin, string nom, string prenom, int age, string address, int n_tele, DateTime date_naissance, DateTime date_deces, List<AntecedentMedical> dossier_medicale, List<Consultation> consultation, List<Citoyen> entourage = null)
@@ -43,6 +65,6 @@ public class Citoyen
     public List<Citoyen> Entourage { get => entourage; set => entourage = value; }
     public List<Consultation> Consultation { get => consultation; set => consultation = value; }
     public DateTime Date_naissance { get => date_naissance; set => date_naissance = value; }
-    public DateTime Date_deces { get => date_deces; set => date_deces = value; }
+    public DateTime? Date_deces { get => date_deces; set => date_deces = value; }
 
 }

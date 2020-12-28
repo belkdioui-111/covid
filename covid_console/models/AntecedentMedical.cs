@@ -2,7 +2,7 @@ using System;
 
 public class AntecedentMedical
 {
-    private int id;
+  
     private string nom_maladie;
     private string medecin_traitant;
     private string lieu;
@@ -14,9 +14,9 @@ public class AntecedentMedical
 
     }
 
-    public AntecedentMedical(int id, string nom_maladie, string medecin_traitant, string lieu, DateTime date, string etat, Citoyen citoyen)
+    public AntecedentMedical( string nom_maladie, string medecin_traitant, string lieu, DateTime date, string etat, Citoyen citoyen)
     {
-        this.id = id;
+      
         this.nom_maladie = nom_maladie;
         this.medecin_traitant = medecin_traitant;
         this.lieu = lieu;
@@ -25,7 +25,7 @@ public class AntecedentMedical
         this.citoyen = citoyen;
     }
 
-    public int Id { get => id; set => id = value; }
+  
     public string Nom_maladie { get => nom_maladie; set => nom_maladie = value; }
     public string Medecin_traitent { get => medecin_traitant; set => medecin_traitant = value; }
     public string Lieu { get => lieu; set => lieu = value; }
