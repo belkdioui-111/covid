@@ -75,6 +75,15 @@ namespace covid_console.persistence
             }
         }
 
+        public List<Citoyen> getEntourage(string Cin)
+        {
+            using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=covid_suivi;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"))
+            {
+                var output = connection.Query<Citoyen>($"SELECT* FROM entourage INNER JOIN citoyen_ ON entourage.cin_entourage = citoyen_.cin where entourage.cin_citoyen = @cin; ", new { cin = Cin }).ToList();
+                return output;
+            }
+        }
+
         public Consultation getLastConsultationByCitoyen(String cin)
         {
             using (IDbConnection connection = new System.Data.SqlClient.SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=covid_suivi;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"))

@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 namespace covid_console
 {
-    class Program
+    class Program_console
     {
         static Persistence persistence = new Persistence();
 
@@ -90,7 +90,8 @@ namespace covid_console
             Console.WriteLine("choisir une option:");
             Console.WriteLine("1) Afficher dossier medicale ");
             Console.WriteLine("2) Afficher l'historique d'etats");
-            Console.WriteLine("3) Exit");
+            Console.WriteLine("3) Afficher entourage");
+            Console.WriteLine("4) Exit");
             Console.Write("\r\nSelectionner une option: ");
 
             switch (Console.ReadLine())
@@ -132,6 +133,22 @@ namespace covid_console
                         keyInfo = Console.ReadKey();
                     return true;
                 case "3":
+                    Console.Clear();
+                    List<Citoyen> citoyens = persistence.getEntourage(citoyen.Cin);
+                    Console.WriteLine("######################################################");
+                    foreach (Citoyen c in citoyens)
+                    {
+                        Console.WriteLine("CIN CITOYEN  : " + c.Cin);
+                        Console.WriteLine("PRENOM CITOYEN  : " + c.Prenom);
+                        Console.WriteLine("NOM CITOYEN  : " + c.Nom);
+                        Console.WriteLine("######################################################");
+                    }
+                    Console.WriteLine("Tapez entrer pour retourner au menu precedant...");
+                    keyInfo = Console.ReadKey();
+                    while (keyInfo.Key != ConsoleKey.Enter)
+                        keyInfo = Console.ReadKey();
+                    return true;
+                case "4":
                     bool showMenu = true;
                     while (showMenu)
                     {
