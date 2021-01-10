@@ -8,13 +8,13 @@ public class AntecedentMedical
     private string lieu;
     private DateTime date;
     private string etat;
-    private Citoyen citoyen;
+    private string cin_citoyen;
 
     public AntecedentMedical(){
 
     }
 
-    public AntecedentMedical( string nom_maladie, string medecin_traitant, string lieu, DateTime date, string etat, Citoyen citoyen)
+    public AntecedentMedical( string nom_maladie, string medecin_traitant, string lieu, DateTime date, string etat, string citoyen)
     {
       
         this.nom_maladie = nom_maladie;
@@ -22,7 +22,7 @@ public class AntecedentMedical
         this.lieu = lieu;
         this.date = date;
         this.etat = etat;
-        this.citoyen = citoyen;
+        this.cin_citoyen = citoyen;
     }
 
   
@@ -31,5 +31,5 @@ public class AntecedentMedical
     public string Lieu { get => lieu; set => lieu = value; }
     public DateTime Date { get => date; set => date = value; }
     public string Etat { get => etat; set => etat = value; }
-    public Citoyen Citoyen { get => citoyen; set => citoyen = value; }
+    public string Citoyen { get => cin_citoyen; set => cin_citoyen = value; }
 }
